@@ -1,11 +1,10 @@
 function solution(dartResult) {
   const options = "SDT*#";
   let results = [0, 0, 0];
-  let answer = 0;
 
   dartResult = dartResult
     .split("")
-    .map((v, i) => (options.includes(v) ? v : Number(v)));
+    .map((v) => (options.includes(v) ? v : Number(v)));
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < dartResult.length; j++) {
       if (dartResult[j] === 1 && dartResult[j + 1] === 0) {
