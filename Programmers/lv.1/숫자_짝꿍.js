@@ -1,23 +1,21 @@
 function solution(X, Y) {
-  let bf = [];
-  const x = X.split("").map(Number);
-  const y = Y.split("").map(Number);
+  let bf = "";
+  const x = X.split("");
+  const y = Y.split("");
 
   for (let i = 0; i < 10; i++) {
-    let filterX = [];
-    let filterY = [];
-    filterX = x.filter((v) => +v === i);
-    filterY = y.filter((v) => +v === i);
+    let filterX = 0;
+    let filterY = 0;
+    filterX = x.filter((v) => +v === i).length;
+    filterY = y.filter((v) => +v === i).length;
 
-    filterX.length <= filterY.length
-      ? bf.push(...filterX)
-      : bf.push(...filterY);
+    bf += i.toString().repeat(Math.min(filterX, filterY));
   }
   return bf.length === 0
     ? "-1"
-    : bf.filter((v) => +v === 0).length === bf.length
+    : bf.split("").filter((v) => +v === 0).length === bf.length
     ? "0"
-    : bf.sort((a, b) => b - a).join("");
+    : bf.split("").reverse().join("");
 }
 
 console.log(solution("100", "2345"));
