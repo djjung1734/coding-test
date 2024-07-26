@@ -11,10 +11,11 @@ function solution(numbers, hand) {
       result += "R";
       right = v;
     } else if (v === 2 || v === 5 || v === 8 || v === 0) {
+      if (v === 0) v = 11;
       let l_distance =
-        v === 0 ? Math.abs(10 - left) % 3 : Math.abs(v - left) % 3;
+        parseInt(Math.abs(left - v) / 3) + (Math.abs(left - v) % 3);
       let r_distance =
-        v === 0 ? Math.abs(10 - right) % 3 : Math.abs(v - right) % 3;
+        parseInt(Math.abs(right - v) / 3) + (Math.abs(right - v) % 3);
       if (l_distance < r_distance) {
         result += "L";
         left = v;
@@ -32,6 +33,9 @@ function solution(numbers, hand) {
       }
     }
   });
-  console.log(right, left);
-  console.log(result);
+  return result;
 }
+
+console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right"));
+console.log(solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2], "left"));
+console.log(solution([1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "right"));
