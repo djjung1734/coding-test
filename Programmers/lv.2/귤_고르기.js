@@ -1,3 +1,4 @@
+//시간 초과 코드
 // function solution(k, tangerine) {
 //   const count = [];
 //   let sum = 0;
