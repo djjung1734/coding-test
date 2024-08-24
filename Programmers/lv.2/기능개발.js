@@ -6,8 +6,17 @@ function solution(progresses, speeds) {
     v = 100 - v;
     days.push(Math.ceil(v / speeds[i]));
   });
-  console.log(days);
-  for (let i = 1; i < days.length; i++) {}
+  for (let i = 0; i < days.length; i++) {
+    let cnt = 1;
+    while (days[i] >= days[i + 1]) {
+      days[i + 1] = days[i];
+      cnt++;
+      i++;
+    }
+    answer.push(cnt);
+  }
+  return answer;
 }
 
-//진행중
+console.log(solution([93, 30, 55], [1, 30, 5]));
+console.log(solution([95, 90, 99, 99, 80, 99], [1, 1, 1, 1, 1, 1]));
