@@ -36,4 +36,3 @@ console.log(solution("FRANCE", "french"));
 console.log(solution("handshake", "shake hands"));
 console.log(solution("aa1+aa2", "AAAA12"));
 console.log(solution("E=M*C^2", "e=m*c^2"));
-//시간 초과
